@@ -1,10 +1,13 @@
-import getData from "@/lib/utils";
+import { PostWithCommentsProps } from "@/lib/types";
 import React from "react";
 
-export default async function Post({ post }) {
+export default async function Post({ post }: PostWithCommentsProps) {
   // destructure  all the keys
 
-  const { name, title, body } = post;
+  const { name, title, body, comments } = post;
+
+  console.log(comments);
+
   return (
     <>
       <div className="mx-auto flex-col rounded-md bg-white p-4 mb-4">

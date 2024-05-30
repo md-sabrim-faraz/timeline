@@ -1,13 +1,16 @@
 import React from "react";
 import getData from "@/lib/utils";
 import Post from "./Post";
+import {
+  PostProps,
+  PostsWithNameAndCommentsProps,
+  UserProps,
+} from "@/lib/types";
 
 export default async function HomePage() {
-  const posts = await getData("/posts");
-  console.log(posts);
+  const posts: PostProps[] = await getData("/posts");
 
-  const users = await getData("/users");
-  console.log(users);
+  const users: UserProps[] = await getData("/users");
 
   // get user's name and comments from posts
 
@@ -24,9 +27,8 @@ export default async function HomePage() {
   });
 
   // Wait for all promises to resolve
-  const postsWithNameAndComments = await Promise.all(
-    postsWithNameAndCommentsPromises
-  );
+  const postsWithNameAndComments: PostsWithNameAndCommentsProps[] =
+    await Promise.all(postsWithNameAndCommentsPromises);
 
   console.log(postsWithNameAndComments);
 
