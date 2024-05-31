@@ -13,7 +13,7 @@ export interface UserProps {
   address: Address;
   phone: string;
   website: string;
-  company: Company;
+  company: Company[];
 }
 
 interface Address {
@@ -21,7 +21,7 @@ interface Address {
   suite: string;
   city: string;
   zipcode: string;
-  geo: Geo;
+  geo: Geo[];
 }
 
 interface Geo {
@@ -43,7 +43,7 @@ export interface UserProps {
   address: Address;
   phone: string;
   website: string;
-  company: Company;
+  company: Company[];
 }
 
 export interface PostsWithNameAndCommentsProps {
@@ -52,7 +52,7 @@ export interface PostsWithNameAndCommentsProps {
   title: string;
   body: string;
   name: string;
-  comments: CommentsProps;
+  comments: CommentsProps[];
 }
 
 export interface CommentsProps {
@@ -65,4 +65,8 @@ export interface CommentsProps {
 
 export interface PostWithCommentsProps {
   post: PostsWithNameAndCommentsProps;
+}
+
+export interface CommentProps {
+  comment: CommentsProps;
 }
