@@ -26,7 +26,7 @@ export default function Post({ post }: PostWithCommentsProps) {
             <Image
               className="inline"
               src="/assets/comment.svg"
-              alt="Search"
+              alt="comment"
               width="25"
               height="30"
             />
@@ -35,7 +35,7 @@ export default function Post({ post }: PostWithCommentsProps) {
         </div>
       </div>
       {seeComments && (
-        <div className="mt-5 ml-8 border-l-2 border-emerald-400">
+        <div className="mt-5 ml-8 border-l-2 border-cyan-400">
           {comments.map((comment) => (
             <Comments key={comment.id} comment={comment} />
           ))}
