@@ -9,11 +9,14 @@ import Post from "./Post";
 export default async function HomePage() {
   const posts: PostProps[] = await getData("/posts");
 
+  // Sort the posts in descending order by ID
+  const sortedPosts: PostProps[] = posts.sort((a, b) => b.id - a.id);
+
   const users: UserProps[] = await getData("/users");
 
   // get user's name and comments from posts
 
-  const postsWithNameAndCommentsPromises = posts.map(async (post) => {
+  const postsWithNameAndCommentsPromises = sortedPosts.map(async (post) => {
     const user = users.find((user) => user.id === post.userId);
     const comments = await getData(`/posts/${post.id}/comments`);
 
