@@ -1,12 +1,11 @@
 "use client";
-import { PostWithCommentsProps } from "@/lib/types";
+import { PostProps } from "@/lib/types";
 import Image from "next/image";
 import { useState } from "react";
-import Comments from "./Comments";
 
-export default function Post({ post }: PostWithCommentsProps) {
+export default function Post({ post }: { post: PostProps }) {
   // destructure  all the keys
-  const { name, title, body, comments } = post;
+  const { name, title, description, comments } = post;
 
   const [seeComments, setSeeComments] = useState(false);
 
@@ -17,7 +16,7 @@ export default function Post({ post }: PostWithCommentsProps) {
           <div className="flex flex-col gap-2">
             <h1 className="font-bold">{name}</h1>
             <h5 className="text-gray-700">{title}</h5>
-            <p className="text-gray-600">{body}</p>
+            <p className="text-gray-600">{description}</p>
           </div>
           <div
             className="mt-4 flex cursor-pointer transition duration-700 delay-150 ease-in-out hover:delay-300"
@@ -34,13 +33,13 @@ export default function Post({ post }: PostWithCommentsProps) {
           </div>
         </div>
       </div>
-      {seeComments && (
+      {/* {seeComments && (
         <div className="mt-5 ml-8 border-l-2 border-cyan-400">
           {comments.map((comment) => (
             <Comments key={comment.id} comment={comment} />
           ))}
         </div>
-      )}
+      )} */}
     </>
   );
 }

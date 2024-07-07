@@ -1,10 +1,3 @@
-export interface PostProps {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
-
 export interface UserProps {
   id: number;
   name: string;
@@ -69,4 +62,12 @@ export interface PostWithCommentsProps {
 
 export interface CommentProps {
   comment: CommentsProps;
+}
+
+export interface PostProps {
+  id: string;
+  name: string;
+  title: string;
+  description: string;
+  comments?: string[];
 }
