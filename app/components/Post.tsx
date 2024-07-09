@@ -2,6 +2,7 @@
 import { PostProps } from "@/lib/types";
 import Image from "next/image";
 import { useState } from "react";
+import CommentForm from "./CommentForm";
 
 export default function Post({ post }: { post: PostProps }) {
   // destructure  all the keys
@@ -33,6 +34,7 @@ export default function Post({ post }: { post: PostProps }) {
           </div>
         </div>
       </div>
+      <CommentForm />
       {/* {seeComments && (
         <div className="mt-5 ml-8 border-l-2 border-cyan-400">
           {comments.map((comment) => (
