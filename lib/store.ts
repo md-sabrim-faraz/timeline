@@ -21,12 +21,12 @@ export const usePostStore = create<State & Actions>((set) => ({
     name: string,
     title: string,
     description: string,
-    comment?: string[]
+    comments?: string[]
   ) =>
     set((state) => ({
       posts: [
         ...state.posts,
-        { id: uuidv4(), name, title, description, comment },
+        { id: uuidv4(), name, title, description, comments },
       ],
     })),
 }));

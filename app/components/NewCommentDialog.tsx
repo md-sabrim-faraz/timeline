@@ -25,10 +25,6 @@ export default function NewCommentDialog() {
 
     const { name, title, description } = Object.fromEntries(formData);
 
-    console.log(name);
-    console.log(title);
-    console.log(description);
-
     if (
       typeof name !== "string" ||
       name === "" ||

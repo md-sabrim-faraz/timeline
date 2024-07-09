@@ -29,7 +29,7 @@ export default function Post({ post }: { post: PostProps }) {
               width="25"
               height="30"
             />
-            <p className="ms-1">{comments?.length}</p>
+            <p className="ms-1">{!comments ? 0 : comments?.length} </p>
           </div>
         </div>
       </div>
