@@ -3,10 +3,13 @@ import { PostProps } from "@/lib/types";
 import Image from "next/image";
 import { useState } from "react";
 import CommentForm from "./CommentForm";
+import Comments from "./Comments";
 
 export default function Post({ post }: { post: PostProps }) {
   // destructure  all the keys
-  const { name, title, description, comments } = post;
+  const { id, name, title, description, comments } = post;
+
+  console.log(id);
 
   const [seeComments, setSeeComments] = useState(false);
 
@@ -34,14 +37,19 @@ export default function Post({ post }: { post: PostProps }) {
           </div>
         </div>
       </div>
-      <CommentForm />
-      {/* {seeComments && (
-        <div className="mt-5 ml-8 border-l-2 border-cyan-400">
-          {comments.map((comment) => (
-            <Comments key={comment.id} comment={comment} />
-          ))}
-        </div>
-      )} */}
+
+      {seeComments && (
+        <>
+          {comments && (
+            <div className="mt-5 ml-8 border-l-2 border-cyan-400">
+              {comments.map((comment) => (
+                <Comments key={comment?.id} comment={comment} />
+              ))}
+            </div>
+          )}
+          <CommentForm />
+        </>
+      )}
     </>
   );
 }
