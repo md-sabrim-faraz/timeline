@@ -47,7 +47,7 @@ export default function Post({ post }: { post: PostProps }) {
               ))}
             </div>
           )}
-          <CommentForm />
+          <CommentForm id={id} />
         </>
       )}
     </>
