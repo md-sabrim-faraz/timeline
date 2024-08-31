@@ -9,7 +9,7 @@ export default function Post({ post }: { post: PostProps }) {
   // destructure  all the keys
   const { id, name, title, description, comments } = post;
 
-  console.log(id);
+  console.log(comments);
 
   const [seeComments, setSeeComments] = useState(false);
 

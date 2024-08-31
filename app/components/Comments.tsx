@@ -1,6 +1,6 @@
-import { CommentProps } from "@/lib/types";
+import { CommentsProps } from "@/lib/types";
 
-export default function Comments({ comment }: CommentProps) {
+export default function Comments({ comment }: CommentsProps) {
   // destructure all the keys
 
   const { name, email, body } = comment;
