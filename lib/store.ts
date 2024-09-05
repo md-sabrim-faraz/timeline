@@ -40,6 +40,8 @@ export const usePostStore = create<State & Actions>((set) => ({
     ),
 
   addComment: (postId, body) => {
+    console.log(postId, body);
+
     set(
       produce((state: State) => {
         console.log(state);

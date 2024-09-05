@@ -1,7 +1,12 @@
+"use client";
+import { usePostStore } from "@/lib/store";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 
-export default function CommentForm() {
+export default function CommentForm({ id }: { id: string }) {
+  const addComment = usePostStore((state) => state.addComment);
+  console.log(id);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -15,11 +20,12 @@ export default function CommentForm() {
 
     if (typeof comment !== "string" || comment === "") return;
 
-    // addPost(name, title, description);
+    addComment(id, comment);
   };
   return (
     <>
       <form
+        id="todo-form"
         className="mx-auto w-11/12 rounded-lg bg-white"
         onSubmit={handleSubmit}
       >
@@ -31,7 +37,7 @@ export default function CommentForm() {
         />
       </form>
       <div className="flex justify-end me-8 mt-4">
-        <Button type="submit" size="sm" form="">
+        <Button type="submit" size="sm" form="todo-form">
           Reply
         </Button>
       </div>

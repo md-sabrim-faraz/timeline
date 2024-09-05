@@ -3,6 +3,10 @@ export interface CommentsProps {
   body: string;
 }
 
+export interface SingleCommentProp {
+  comment: CommentsProps;
+}
+
 export interface PostProps {
   id: string;
   name: string;
