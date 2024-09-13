@@ -1,5 +1,5 @@
 export interface CommentsProps {
-  postId: string;
+  commentId: string;
   body: string;
 }
 

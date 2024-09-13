@@ -1,31 +1,27 @@
 "use client";
 import { usePostStore } from "@/lib/store";
+import { useState } from "react";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 
-export default function CommentForm({ id }: { id: string }) {
+export default function CommentForm({ postId }: { postId: string }) {
   const addComment = usePostStore((state) => state.addComment);
-  console.log(id);
+
+  const [comment, setComment] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const form = e.currentTarget;
+    console.log(comment.trim());
 
-    const formData = new FormData(form);
+    if (comment.trim() === "") return;
 
-    const { comment } = Object.fromEntries(formData);
-
-    console.log(comment);
-
-    if (typeof comment !== "string" || comment === "") return;
-
-    addComment(id, comment);
+    addComment(postId, comment);
   };
+
   return (
     <>
       <form
-        id="todo-form"
         className="mx-auto w-11/12 rounded-lg bg-white"
         onSubmit={handleSubmit}
       >
@@ -34,13 +30,16 @@ export default function CommentForm({ id }: { id: string }) {
           name="comment"
           placeholder="Comment here..."
           className="h-24"
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
         />
+
+        <div className="flex justify-end mt-4">
+          <Button type="submit" size="sm">
+            Reply
+          </Button>
+        </div>
       </form>
-      <div className="flex justify-end me-8 mt-4">
-        <Button type="submit" size="sm" form="todo-form">
-          Reply
-        </Button>
-      </div>
     </>
   );
 }

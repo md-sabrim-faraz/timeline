@@ -44,7 +44,14 @@ export const usePostStore = create<State & Actions>((set) => ({
 
     set(
       produce((state: State) => {
-        console.log(state);
+        const post = state.posts.find((post) => post.id === postId);
+
+        if (post) {
+          post.comments?.push({
+            commentId: uuidv4(),
+            body,
+          });
+        }
       })
     );
   },

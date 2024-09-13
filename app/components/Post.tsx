@@ -10,7 +10,6 @@ export default function Post({ post }: { post: PostProps }) {
   const { id, name, title, description, comments } = post;
 
   console.log(comments);
-  console.log(id);
 
   const [seeComments, setSeeComments] = useState(false);
 
@@ -44,11 +43,11 @@ export default function Post({ post }: { post: PostProps }) {
           {comments && (
             <div className="mt-5 ml-8 border-l-2 border-cyan-400">
               {comments.map((comment) => (
-                <Comments key={comment.postId} comment={comment} />
+                <Comments key={comment.commentId} comment={comment} />
               ))}
             </div>
           )}
-          <CommentForm id={id} />
+          <CommentForm postId={id} />
         </>
       )}
     </>
