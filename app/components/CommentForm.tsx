@@ -12,11 +12,10 @@ export default function CommentForm({ postId }: { postId: string }) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log(comment.trim());
-
     if (comment.trim() === "") return;
 
     addComment(postId, comment);
+    setComment("");
   };
 
   return (

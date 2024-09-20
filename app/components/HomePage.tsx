@@ -5,7 +5,6 @@ import Post from "./Post";
 
 export default function HomePage() {
   const posts = usePostStore((state) => state.posts);
-  console.log(posts);
 
   return (
     <>

@@ -1,13 +1,9 @@
 import { SingleCommentProp } from "@/lib/types";
 
 export default function Comments({ comment }: SingleCommentProp) {
-  console.log(comment);
-
-  // destructure all the keys
+  // destructure the key
 
   const { body } = comment;
-
-  console.log(comment);
 
   return (
     <>
